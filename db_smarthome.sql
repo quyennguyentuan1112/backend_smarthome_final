@@ -14,6 +14,8 @@ CREATE TABLE notification (
     messageDescription VARCHAR(150),
     result VARCHAR(50),
     homeId VARCHAR(15),
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    isSeen BOOLEAN DEFAULT FALSE,
     PRIMARY KEY (id),
     FOREIGN KEY (homeId) REFERENCES home (homeId) ON DELETE CASCADE ON UPDATE CASCADE 
 );
@@ -22,6 +24,7 @@ CREATE TABLE postDevice (
 	idDevice VARCHAR(15),
     category VARCHAR(15),
     nameDevice VARCHAR(20) DEFAULT "",
+    realTime BOOLEAN DEFAULT FALSE,
     deviceDescription VARCHAR (150) DEFAULT "",
     homeId VARCHAR(15) DEFAULT "",
     PRIMARY KEY (idDevice)
